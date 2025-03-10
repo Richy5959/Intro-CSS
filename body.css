@@ -5,7 +5,7 @@ body {
     padding: 0;
     background-color: #f4f4f4; /* Fallback background color */
     color: #333;
-    background-image: url('https://img.freepik.com/free-vector/food-background-with-vegetables_23-2147698702.jpg'); /* Ensure the URL is correct */
+    background-image: url('images/background.jpg'); /* Relative path to the image */
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
