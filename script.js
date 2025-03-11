@@ -46,22 +46,53 @@ document.addEventListener('DOMContentLoaded', function() {
     // Flame animation setup
     const flameCanvas = document.getElementById('flame-canvas');
     const flameCtx = flameCanvas.getContext('2d');
-    const flameColors = ['#ff4500', '#ff8c00', '#ffd700', '#ff69b4', '#ff1493'];
-    let flameIndex = 0;
+    const flameWidth = flameCanvas.width;
+    const flameHeight = flameCanvas.height;
+    const particles = [];
+    const colors = ['#ff4500', '#ff8c00', '#ffd700', '#ff69b4', '#ff1493'];
+
+    function createParticle() {
+        return {
+            x: Math.random() * flameWidth,
+            y: flameHeight,
+            size: Math.random() * 5 + 2,
+            speedY: Math.random() * 1 + 0.5,
+            color: colors[Math.floor(Math.random() * colors.length)],
+            alpha: 1,
+            decay: Math.random() * 0.03 + 0.01
+        };
+    }
 
     function drawFlame() {
-        flameCtx.clearRect(0, 0, flameCanvas.width, flameCanvas.height);
+        flameCtx.clearRect(0, 0, flameWidth, flameHeight);
 
-        flameCtx.fillStyle = flameColors[flameIndex];
-        flameCtx.beginPath();
-        flameCtx.moveTo(flameCanvas.width / 2, flameCanvas.height);
-        flameCtx.lineTo(flameCanvas.width / 2 - 20, flameCanvas.height - 50);
-        flameCtx.lineTo(flameCanvas.width / 2 + 20, flameCanvas.height - 50);
-        flameCtx.closePath();
-        flameCtx.fill();
+        particles.forEach((particle, index) => {
+            flameCtx.fillStyle = `rgba(${hexToRgb(particle.color)},${particle.alpha})`;
+            flameCtx.beginPath();
+            flameCtx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+            flameCtx.fill();
 
-        flameIndex = (flameIndex + 1) % flameColors.length;
+            particle.y -= particle.speedY;
+            particle.alpha -= particle.decay;
+
+            if (particle.alpha <= 0) {
+                particles.splice(index, 1);
+            }
+        });
+
+        while (particles.length < 100) {
+            particles.push(createParticle());
+        }
+
         requestAnimationFrame(drawFlame);
+    }
+
+    function hexToRgb(hex) {
+        const bigint = parseInt(hex.slice(1), 16);
+        const r = (bigint >> 16) & 255;
+        const g = (bigint >> 8) & 255;
+        const b = bigint & 255;
+        return `${r},${g},${b}`;
     }
 
     drawFlame();
