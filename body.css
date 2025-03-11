@@ -12,13 +12,15 @@ body {
 }
 
 body.light-theme {
-    background-color: #ffffff;
-    color: #000000;
+    background-color: #f4f4f4; /* Light theme background color */
+    color: #333; /* Light theme text color */
+    background-image: url('images/background.jpg'); /* Ensure background image is applied */
 }
 
 body.dark-theme {
-    background-color: #000000;
-    color: #ffffff;
+    background-color: #333; /* Dark theme background color */
+    color: #fff; /* Dark theme text color */
+    background-image: none; /* Remove background image for dark theme */
 }
 
 header {
