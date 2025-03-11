@@ -112,6 +112,12 @@ footer img {
     margin: 0.5rem auto;
 }
 
+#visualizer {
+    display: block;
+    margin: 0.5rem auto;
+    background: #000;
+}
+
 #currency-marquee {
     background: #333;
     color: #fff;
