@@ -92,3 +92,17 @@ footer img {
     font-size: 1.2rem; /* Reduced font size */
     margin: 0.3rem 0; /* Reduced margin */
 }
+
+#radio-stations {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+#radio-stations h3 {
+    margin-bottom: 0.5rem;
+}
+
+#radio-stations audio {
+    display: block;
+    margin: 0.5rem auto;
+}
