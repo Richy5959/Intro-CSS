@@ -72,3 +72,23 @@ footer img {
     display: block;
     margin: 0.5rem auto;
 }
+
+#clocks {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1rem;
+}
+
+#clocks div {
+    text-align: center;
+}
+
+#clocks h3 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+#clocks p {
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
+}
