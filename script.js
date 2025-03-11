@@ -46,6 +46,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Flame animation setup
     const flameCanvas = document.getElementById('flame-canvas');
     const flameCtx = flameCanvas.getContext('2d');
+    flameCanvas.width = window.innerWidth;
+    flameCanvas.height = 150;
+
     const flameWidth = flameCanvas.width;
     const flameHeight = flameCanvas.height;
     const particles = [];
