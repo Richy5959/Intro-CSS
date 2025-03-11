@@ -42,6 +42,29 @@ document.addEventListener('DOMContentLoaded', function() {
 
     fetchCurrencyPrices();
     setInterval(fetchCurrencyPrices, 60000); // Update prices every minute
+
+    // Flame animation setup
+    const flameCanvas = document.getElementById('flame-canvas');
+    const flameCtx = flameCanvas.getContext('2d');
+    const flameColors = ['#ff4500', '#ff8c00', '#ffd700', '#ff69b4', '#ff1493'];
+    let flameIndex = 0;
+
+    function drawFlame() {
+        flameCtx.clearRect(0, 0, flameCanvas.width, flameCanvas.height);
+
+        flameCtx.fillStyle = flameColors[flameIndex];
+        flameCtx.beginPath();
+        flameCtx.moveTo(flameCanvas.width / 2, flameCanvas.height);
+        flameCtx.lineTo(flameCanvas.width / 2 - 20, flameCanvas.height - 50);
+        flameCtx.lineTo(flameCanvas.width / 2 + 20, flameCanvas.height - 50);
+        flameCtx.closePath();
+        flameCtx.fill();
+
+        flameIndex = (flameIndex + 1) % flameColors.length;
+        requestAnimationFrame(drawFlame);
+    }
+
+    drawFlame();
 });
 
 document.getElementById('theme-toggle').addEventListener('click', function() {
