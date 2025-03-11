@@ -34,9 +34,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 `XLM: $${data.stellar.usd}`,
                 `USD: $${data.usd.usd}`
             ];
-            document.getElementById('currency-prices').textContent = prices.join(' | ');
+            document.getElementById('currency-prices').textContent = `Саня Отец Квартала наш великий Человек!!!! | ${prices.join(' | ')}`;
         } catch (error) {
-            document.getElementById('currency-prices').textContent = 'Failed to load currency prices';
+            document.getElementById('currency-prices').textContent = 'Саня Отец Квартала наш великий Человек!!!! | Failed to load currency prices';
         }
     }
 
