@@ -11,6 +11,16 @@ body {
     background-attachment: fixed;
 }
 
+body.light-theme {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+body.dark-theme {
+    background-color: #000000;
+    color: #ffffff;
+}
+
 header {
     background: #333;
     color: #fff;
