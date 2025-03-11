@@ -15,6 +15,16 @@
         }
         main {
             flex: 1;
+            display: flex;
+        }
+        #snake-game {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #snake-canvas {
+            border: 1px solid #000;
         }
     </style>
 </head>
@@ -29,6 +39,9 @@
         <button id="theme-toggle">Toggle Theme</button>
     </header>
     <main>
+        <section id="snake-game">
+            <canvas id="snake-canvas" width="300" height="300"></canvas>
+        </section>
         <section>
             <h2>Ingredients</h2>
             <ul>
